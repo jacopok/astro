@@ -1,0 +1,162 @@
+XSPEC12>model wabs * powerlaw
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1      0.001(      0.01)          0          0     100000      1e+06
+1:wabs:nH>
+              1       0.01(      0.01)         -3         -2          9         10
+2:powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+3:powerlaw:norm>
+
+========================================================================
+Model wabs<1>*powerlaw<2> Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.00000      +/-  0.0          
+   2    2   powerlaw   PhoIndex            1.00000      +/-  0.0          
+   3    2   powerlaw   norm                1.00000      +/-  0.0          
+________________________________________________________________________
+
+
+**************************************************************
+The wabs model is obsolete and is only included for comparison
+with historical results. The tbabs model should be used for
+the ISM or phabs for general photoelectric absorption.
+**************************************************************
+
+Fit statistic : Chi-Squared =   6.256660e+07 using 482 PHA bins.
+
+Test statistic : Chi-Squared =   6.256660e+07 using 482 PHA bins.
+ Reduced chi-squared =       130619.2 for    479 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>fit
+                                   Parameters
+Chi-Squared  |beta|/N    Lvl          1:nH    2:PhoIndex        3:norm
+240.768      78.3022      -2       1.13174       1.29415     0.0109134
+238.887      7240.17      -3       1.57911       1.56383     0.0163337
+209.95       6262.18      -4       1.60924       1.58188     0.0183340
+209.92       194.66       -5       1.60696       1.58066     0.0183488
+209.92       0.239413     -2       1.60700       1.58067     0.0183491
+========================================
+ Variances and Principal Axes
+                 1        2        3  
+ 8.6349E-08| -0.0038  -0.0222   0.9997  
+ 2.5267E-02| -0.8838  -0.4677  -0.0138  
+ 1.0057E-03| -0.4679   0.8836   0.0178  
+----------------------------------------
+
+====================================
+  Covariance Matrix
+        1           2           3   
+   1.996e-02   1.003e-02   2.997e-04
+   1.003e-02   6.312e-03   1.789e-04
+   2.997e-04   1.789e-04   5.215e-06
+------------------------------------
+
+========================================================================
+Model wabs<1>*powerlaw<2> Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.60700      +/-  0.141263     
+   2    2   powerlaw   PhoIndex            1.58067      +/-  7.94476E-02  
+   3    2   powerlaw   norm                1.83491E-02  +/-  2.28354E-03  
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =         209.92 using 482 PHA bins.
+
+Test statistic : Chi-Squared =         209.92 using 482 PHA bins.
+ Reduced chi-squared =        0.43825 for    479 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+
+
+################################################################################################
+
+
+XSPEC12>model wabs * (powerlaw + gauss)
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1      0.001(      0.01)          0          0     100000      1e+06
+1:wabs:nH>
+              1       0.01(      0.01)         -3         -2          9         10
+2:powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+3:powerlaw:norm>
+            6.5       0.05(     0.065)          0          0      1e+06      1e+06
+4:gaussian:LineE>6.325
+            0.1       0.05(     0.001)          0          0         10         20
+5:gaussian:Sigma>.07
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+6:gaussian:norm>
+
+========================================================================
+Model wabs<1>(powerlaw<2> + gaussian<3>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.00000      +/-  0.0          
+   2    2   powerlaw   PhoIndex            1.00000      +/-  0.0          
+   3    2   powerlaw   norm                1.00000      +/-  0.0          
+   4    3   gaussian   LineE      keV      6.32500      +/-  0.0          
+   5    3   gaussian   Sigma      keV      7.00000E-02  +/-  0.0          
+   6    3   gaussian   norm                1.00000      +/-  0.0          
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =   9.667452e+08 using 482 PHA bins.
+
+Test statistic : Chi-Squared =   9.667452e+08 using 482 PHA bins.
+ Reduced chi-squared =   2.030977e+06 for    476 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>fit
+                                   Parameters
+Chi-Squared  |beta|/N    Lvl          1:nH    2:PhoIndex        3:norm       4:LineE       5:Sigma        6:norm
+2374.94      96012.8      -2      0.484495       2.37906    0.00905877       6.32681     0.0576178   2.05851e-05
+301.607      48949.3       0      0.762483       1.25191     0.0111202       6.32473     0.0236824   0.000137340
+213.521      15589.4      -1       1.04484       1.28076     0.0112514       6.32683     0.0251417   0.000100526
+200.773      1050.64      -2       1.36980       1.44554     0.0142471       6.32698     0.0256069   0.000103243
+196.031      1712.02      -3       1.63647       1.61000     0.0183808       6.32713     0.0272845   0.000111585
+191.507      1599.28      -4       1.66000       1.62428     0.0194362       6.32742     0.0270076   0.000112130
+191.507      69.6467       3       1.66000       1.62428     0.0194362       6.32742     0.0270076   0.000112130
+======================================================================
+ Variances and Principal Axes
+                 1        2        3        4        5        6  
+ 6.6720E-10| -0.0000  -0.0002   0.0063  -0.0000  -0.0013   1.0000  
+ 9.8671E-08|  0.0041   0.0233  -0.9997   0.0001  -0.0019   0.0063  
+ 1.0461E-04| -0.0088   0.0272   0.0025   0.0125  -0.9995  -0.0013  
+ 2.6355E-02|  0.8819   0.4712   0.0146   0.0003   0.0051   0.0000  
+ 1.0415E-03|  0.4714  -0.8813  -0.0186   0.0002  -0.0282  -0.0001  
+ 3.0372E-04|  0.0002   0.0003  -0.0000  -0.9999  -0.0125  -0.0000  
+----------------------------------------------------------------------
+
+========================================================================
+  Covariance Matrix
+        1           2           3           4           5           6   
+   2.073e-02   1.052e-02   3.311e-04   7.272e-06   1.051e-04   5.103e-07
+   1.052e-02   6.661e-03   1.988e-04   3.658e-06   8.609e-05   4.053e-07
+   3.311e-04   1.988e-04   6.105e-06   1.270e-07   2.246e-06   1.069e-08
+   7.272e-06   3.658e-06   1.270e-07   3.037e-04   2.534e-06   1.014e-08
+   1.051e-04   8.609e-05   2.246e-06   2.534e-06   1.061e-04   1.452e-07
+   5.103e-07   4.053e-07   1.069e-08   1.014e-08   1.452e-07   8.843e-10
+------------------------------------------------------------------------
+
+========================================================================
+Model wabs<1>(powerlaw<2> + gaussian<3>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.66000      +/-  0.143972     
+   2    2   powerlaw   PhoIndex            1.62428      +/-  8.16146E-02  
+   3    2   powerlaw   norm                1.94362E-02  +/-  2.47074E-03  
+   4    3   gaussian   LineE      keV      6.32742      +/-  1.74267E-02  
+   5    3   gaussian   Sigma      keV      2.70076E-02  +/-  1.02988E-02  
+   6    3   gaussian   norm                1.12130E-04  +/-  2.97376E-05  
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =         191.51 using 482 PHA bins.
+
+Test statistic : Chi-Squared =         191.51 using 482 PHA bins.
+ Reduced chi-squared =        0.40233 for    476 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+

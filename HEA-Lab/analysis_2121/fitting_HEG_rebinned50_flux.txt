@@ -1,0 +1,210 @@
+XSPEC12>model cflux*wabs*(powerlaw+gauss)
+
+Input parameter value, delta, min, bot, top, and max values for ...
+            0.5       -0.1(     0.005)          0          0      1e+06      1e+06
+1:cflux:Emin>5
+             10       -0.1(       0.1)          0          0      1e+06      1e+06
+2:cflux:Emax>8
+            -12       0.01(      0.12)       -100       -100        100        100
+3:cflux:lg10Flux>
+              1      0.001(      0.01)          0          0     100000      1e+06
+4:wabs:nH>
+              1       0.01(      0.01)         -3         -2          9         10
+5:powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+6:powerlaw:norm>1 -1
+            6.5       0.05(     0.065)          0          0      1e+06      1e+06
+7:gaussian:LineE>6.32
+            0.1       0.05(     0.001)          0          0         10         20
+8:gaussian:Sigma>.03
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+9:gaussian:norm>
+
+========================================================================
+Model cflux<1>*wabs<2>(powerlaw<3> + gaussian<4>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   cflux      Emin       keV      5.00000      frozen
+   2    1   cflux      Emax       keV      8.00000      frozen
+   3    1   cflux      lg10Flux   cgs      -12.0000     +/-  0.0          
+   4    2   wabs       nH         10^22    1.00000      +/-  0.0          
+   5    3   powerlaw   PhoIndex            1.00000      +/-  0.0          
+   6    3   powerlaw   norm                1.00000      frozen
+   7    4   gaussian   LineE      keV      6.32000      +/-  0.0          
+   8    4   gaussian   Sigma      keV      3.00000E-02  +/-  0.0          
+   9    4   gaussian   norm                1.00000      +/-  0.0          
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =        3971.92 using 203 PHA bins.
+
+Test statistic : Chi-Squared =        3971.92 using 203 PHA bins.
+ Reduced chi-squared =        20.1620 for    197 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>fit
+                                   Parameters
+Chi-Squared  |beta|/N    Lvl    3:lg10Flux          4:nH    5:PhoIndex       7:LineE       8:Sigma        9:norm
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+3627.49      64.0904       1      -11.8474      0.275861       1.42803       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+2192.08      179.413       0      -11.3488      0.118805       2.10643       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+1734.47      389.169       0      -11.1880      0.371995       2.10215       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+182.314      409.322      -1      -10.6227       1.35601       1.76574       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+88.6239      102.778      -2      -10.5279       1.56877       1.57213       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+88.2241      19.3601      -3      -10.5260       1.58495       1.56194       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+88.224       0.0609664    -4      -10.5258       1.58343       1.56094       6.32000     0.0300000       0.00000
+ Due to zero model norms, the following fit parameters are temporarily frozen:7 8 
+87.4576      307.345      -1      -10.5194       1.59344       1.58012       6.32000     0.0300000     0.0111400
+72.0194      440.745      -2      -10.5194       1.63387       1.60453       6.32817     0.0327248    0.00573598
+71.9839      23.3146      -3      -10.5205       1.64278       1.60960       6.32727     0.0324470    0.00590385
+Number of trials exceeded: continue fitting? 
+71.9774      0.364051     -4      -10.5205       1.64322       1.60997       6.32806     0.0327775    0.00592218
+======================================================================
+ Variances and Principal Axes
+                 3        4        5        7        8        9  
+ 1.7727E-06| -0.0802   0.0087  -0.0187  -0.0015  -0.0476   0.9954  
+ 5.0191E-05|  0.9465  -0.0776   0.2565  -0.0074  -0.1636   0.0739  
+ 2.0275E-04| -0.1620   0.0004  -0.0030   0.1384  -0.9752  -0.0595  
+ 4.4195E-04|  0.0322   0.0021  -0.0066   0.9903   0.1346   0.0104  
+ 1.0992E-03| -0.2596  -0.4712   0.8419   0.0094   0.0416   0.0010  
+ 2.6538E-02| -0.0548   0.8785   0.4744   0.0019   0.0084  -0.0028  
+----------------------------------------------------------------------
+
+========================================================================
+  Covariance Matrix
+        1           2           3           4           5           6   
+   2.046e-04  -1.147e-03  -9.183e-04   3.686e-06   2.005e-06   9.304e-06
+  -1.147e-03   2.073e-02   1.062e-02   4.119e-05   1.761e-04  -6.677e-05
+  -9.183e-04   1.062e-02   6.755e-03   2.997e-05   1.430e-04  -3.378e-05
+   3.686e-06   4.119e-05   2.997e-05   4.375e-04   3.247e-05   2.714e-06
+   2.005e-06   1.761e-04   1.430e-04   3.247e-05   2.060e-04   1.111e-05
+   9.304e-06  -6.677e-05  -3.378e-05   2.714e-06   1.111e-05   3.010e-06
+------------------------------------------------------------------------
+
+========================================================================
+Model cflux<1>*wabs<2>(powerlaw<3> + gaussian<4>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   cflux      Emin       keV      5.00000      frozen
+   2    1   cflux      Emax       keV      8.00000      frozen
+   3    1   cflux      lg10Flux   cgs      -10.5205     +/-  1.43043E-02  
+   4    2   wabs       nH         10^22    1.64322      +/-  0.143970     
+   5    3   powerlaw   PhoIndex            1.60997      +/-  8.21899E-02  
+   6    3   powerlaw   norm                1.00000      frozen
+   7    4   gaussian   LineE      keV      6.32806      +/-  2.09165E-02  
+   8    4   gaussian   Sigma      keV      3.27775E-02  +/-  1.43521E-02  
+   9    4   gaussian   norm                5.92218E-03  +/-  1.73501E-03  
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =          71.98 using 203 PHA bins.
+
+Test statistic : Chi-Squared =          71.98 using 203 PHA bins.
+ Reduced chi-squared =         0.3654 for    197 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+
+######################################################################################################################
+
+XSPEC12>model wabs*(powerlaw+cflux*gauss)
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1      0.001(      0.01)          0          0     100000      1e+06
+1:wabs:nH>
+              1       0.01(      0.01)         -3         -2          9         10
+2:powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+3:powerlaw:norm>
+            0.5       -0.1(     0.005)          0          0      1e+06      1e+06
+4:cflux:Emin>5
+             10       -0.1(       0.1)          0          0      1e+06      1e+06
+5:cflux:Emax>8
+            -12       0.01(      0.12)       -100       -100        100        100
+6:cflux:lg10Flux>
+            6.5       0.05(     0.065)          0          0      1e+06      1e+06
+7:gaussian:LineE>6.32
+            0.1       0.05(     0.001)          0          0         10         20
+8:gaussian:Sigma>.02
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+9:gaussian:norm>1 -1
+
+========================================================================
+Model wabs<1>(powerlaw<2> + cflux<3>*gaussian<4>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.00000      +/-  0.0          
+   2    2   powerlaw   PhoIndex            1.00000      +/-  0.0          
+   3    2   powerlaw   norm                1.00000      +/-  0.0          
+   4    3   cflux      Emin       keV      5.00000      frozen
+   5    3   cflux      Emax       keV      8.00000      frozen
+   6    3   cflux      lg10Flux   cgs      -12.0000     +/-  0.0          
+   7    4   gaussian   LineE      keV      6.32000      +/-  0.0          
+   8    4   gaussian   Sigma      keV      2.00000E-02  +/-  0.0          
+   9    4   gaussian   norm                1.00000      frozen
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =   6.135636e+07 using 203 PHA bins.
+
+Test statistic : Chi-Squared =   6.135636e+07 using 203 PHA bins.
+ Reduced chi-squared =       311453.6 for    197 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>fit
+                                   Parameters
+Chi-Squared  |beta|/N    Lvl          1:nH    2:PhoIndex        3:norm    6:lg10Flux       7:LineE       8:Sigma
+105.192      46.5606      -2       1.12917       1.29804     0.0111169      -11.9903       6.33400     0.0313503
+82.3583      3635.72      -2       1.37873       1.44301     0.0144402      -11.9939       6.32042     0.0277840
+76.1755      1651.94      -3       1.62241       1.59686     0.0184372      -11.9257       6.33550     0.0356447
+72.2791      1070.68      -4       1.63986       1.60712     0.0193314      -11.9511       6.32216     0.0301292
+72.1387      19.4059      -5       1.64441       1.61089     0.0194419      -11.9262       6.33287     0.0346967
+72.1303      3.98891      -2       1.64304       1.60941     0.0194082      -11.9447       6.32395     0.0307632
+======================================================================
+ Variances and Principal Axes
+                 1        2        3        6        7        8  
+ 9.5757E-08| -0.0041  -0.0234   0.9997   0.0003  -0.0000   0.0005  
+ 1.7108E-04|  0.0048  -0.0127  -0.0008  -0.0635  -0.0825   0.9945  
+ 4.3694E-04| -0.0005   0.0025   0.0000   0.0183  -0.9965  -0.0815  
+ 1.0044E-03|  0.4699  -0.8814  -0.0187   0.0431  -0.0008  -0.0108  
+ 2.7556E-02| -0.8413  -0.4616  -0.0142  -0.2801  -0.0042  -0.0201  
+ 1.4889E-02|  0.2671   0.0964   0.0036  -0.9567  -0.0124  -0.0622  
+----------------------------------------------------------------------
+
+========================================================================
+  Covariance Matrix
+        1           2           3           4           5           6   
+   2.079e-02   1.067e-02   3.344e-04   2.709e-03   4.840e-05   2.141e-04
+   1.067e-02   6.791e-03   2.022e-04   2.153e-03   3.576e-05   1.736e-04
+   3.344e-04   2.022e-04   6.186e-06   5.684e-05   9.864e-07   4.554e-06
+   2.709e-03   2.153e-03   5.684e-05   1.579e-02   2.021e-04   1.029e-03
+   4.840e-05   3.576e-05   9.864e-07   2.021e-04   4.378e-04   3.527e-05
+   2.141e-04   1.736e-04   4.554e-06   1.029e-03   3.527e-05   2.409e-04
+------------------------------------------------------------------------
+
+========================================================================
+Model wabs<1>(powerlaw<2> + cflux<3>*gaussian<4>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.64304      +/-  0.144183     
+   2    2   powerlaw   PhoIndex            1.60941      +/-  8.24089E-02  
+   3    2   powerlaw   norm                1.94082E-02  +/-  2.48711E-03  
+   4    3   cflux      Emin       keV      5.00000      frozen
+   5    3   cflux      Emax       keV      8.00000      frozen
+   6    3   cflux      lg10Flux   cgs      -11.9447     +/-  0.125669     
+   7    4   gaussian   LineE      keV      6.32395      +/-  2.09246E-02  
+   8    4   gaussian   Sigma      keV      3.07632E-02  +/-  1.55202E-02  
+   9    4   gaussian   norm                1.00000      frozen
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =          72.13 using 203 PHA bins.
+
+Test statistic : Chi-Squared =          72.13 using 203 PHA bins.
+ Reduced chi-squared =         0.3661 for    197 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+

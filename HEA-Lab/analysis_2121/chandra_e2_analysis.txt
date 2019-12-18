@@ -1,0 +1,40 @@
+========================================================================
+Model wabs<1>(bknpower<2> + gaussian<3>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.39411      +/-  0.208807     
+   2    2   bknpower   PhoIndx1            1.13460      +/-  0.143548     
+   3    2   bknpower   BreakE     keV      5.68877      +/-  0.159550     
+   4    2   bknpower   PhoIndx2            -2.50000     +/-  0.291498     
+   5    2   bknpower   norm                6.00636E-04  +/-  1.26521E-04  
+   6    3   gaussian   LineE      keV      6.25745      +/-  0.173050     
+   7    3   gaussian   Sigma      keV      2.38089E-05  +/-  -1.00000     
+   8    3   gaussian   norm                2.26420E-06  +/-  3.84978E-06  
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =          42.14 using 128 PHA bins.
+
+Test statistic : Chi-Squared =          42.14 using 128 PHA bins.
+ Reduced chi-squared =         0.3512 for    120 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+
+
+========================================================================
+Model wabs<1>*bknpower<2> Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+   1    1   wabs       nH         10^22    1.54213      +/-  0.221291     
+   2    2   bknpower   PhoIndx1            1.24553      +/-  0.145817     
+   3    2   bknpower   BreakE     keV      5.73553      +/-  0.153895     
+   4    2   bknpower   PhoIndx2            -2.50000     +/-  0.300501     
+   5    2   bknpower   norm                7.08815E-04  +/-  1.52354E-04  
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =          46.83 using 128 PHA bins.
+
+Test statistic : Chi-Squared =          46.83 using 128 PHA bins.
+ Reduced chi-squared =         0.3807 for    123 degrees of freedom 
+ Null hypothesis probability =   1.000000e+00
+

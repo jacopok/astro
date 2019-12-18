@@ -1,0 +1,281 @@
+(base) jacopo@progmetal:~/Documents/astro/HEA-Lab/simultaneous_fitting$ xspec
+
+		XSPEC version: 12.10.1f
+	Build Date/Time: Mon Nov 11 13:36:36 2019
+
+XSPEC12>data 1:1 rebinnedA20.pha 
+
+1 spectrum  in use
+ 
+Spectral Data File: rebinnedA20.pha  Spectrum 1
+Net count rate (cts/s) for Spectrum:1  2.032e+00 +/- 4.566e-03 (99.2 % total)
+ Assigned to Data Group 1 and Plot Group 1
+  Noticed Channels:  1-983
+  Telescope: NuSTAR Instrument: FPMA  Channel Type: PI
+  Exposure Time: 9.847e+04 sec
+ Using fit statistic: chi
+ Using test statistic: chi
+ Using Background File                nu60001046006A01_bk.pha
+  Background Exposure Time: 9.847e+04 sec
+ Using Response (RMF) File            nu60001046006A01_sr.rmf for Source 1
+ Using Auxiliary Response (ARF) File  nu60001046006A01_sr.arf
+
+XSPEC12>data 2:2 rebinnedB20.pha 
+
+2 spectra  in use
+ 
+Spectral Data File: rebinnedB20.pha  Spectrum 2
+Net count rate (cts/s) for Spectrum:2  1.912e+00 +/- 4.431e-03 (99.2 % total)
+ Assigned to Data Group 2 and Plot Group 2
+  Noticed Channels:  1-950
+  Telescope: NuSTAR Instrument: FPMB  Channel Type: PI
+  Exposure Time: 9.837e+04 sec
+ Using fit statistic: chi
+ Using test statistic: chi
+ Using Background File                nu60001046006B01_bk.pha
+  Background Exposure Time: 9.837e+04 sec
+ Using Response (RMF) File            nu60001046006B01_sr.rmf for Source 1
+ Using Auxiliary Response (ARF) File  nu60001046006B01_sr.arf
+
+XSPEC12>data 3:3 rebinned20.pha 
+
+3 spectra  in use
+ 
+Spectral Data File: rebinned20.pha  Spectrum 3
+Net count rate (cts/s) for Spectrum:3  1.781e-01 +/- 3.618e-03 (99.3 % total)
+ Assigned to Data Group 3 and Plot Group 3
+  Noticed Channels:  1-702
+  Telescope: CHANDRA Instrument: ACIS  Channel Type: PI
+  Exposure Time: 5.922e+04 sec
+ Using fit statistic: chi
+ Using test statistic: chi
+ Using Background File                acisf02121e2_repro_heg_m1_bkg.pha
+  Background Exposure Time: 5.922e+04 sec
+ Using Response (RMF) File            acisf02121e2_repro_heg_m1.rmf for Source 1
+ Using Auxiliary Response (ARF) File  acisf02121e2_repro_heg_m1.arf
+
+XSPEC12>cpd /xs
+XSPEC12>setpl e
+XSPEC12>plot ldata
+XSPEC12>ign 1:**-3. 79.-**
+    34 channels (1-34) ignored in spectrum #     1
+   104 channels (880-983) ignored in spectrum #     1
+
+XSPEC12>ign 2:**-3. 79.-**
+    32 channels (1-32) ignored in spectrum #     2
+    89 channels (862-950) ignored in spectrum #     2
+
+XSPEC12>ign 3:**-0.3. 8.-**
+***Xspec Error: Invalid ignore/notice string: 3:**-0.3.
+
+XSPEC12>ign 3:**-0.3 8.-**
+      No channels ignored (no channels in specified range)
+   220 channels (483-702) ignored in spectrum #     3
+
+XSPEC12>model const*wabs*zwabs*(powerlaw+gauss)
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1       0.01(      0.01)          0          0      1e+10      1e+10
+1:data group 1::constant:factor>1.0 -1 
+              1      0.001(      0.01)          0          0     100000      1e+06
+2:data group 1::wabs:nH>0.0776 -1 
+              1      0.001(      0.01)          0          0     100000      1e+06
+3:data group 1::zwabs:nH>
+              0      -0.01(      0.01)     -0.999     -0.999         10         10
+4:data group 1::zwabs:Redshift>0.008226 -1 
+              1       0.01(      0.01)         -3         -2          9         10
+5:data group 1::powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+6:data group 1::powerlaw:norm>
+            6.5       0.05(     0.065)          0          0      1e+06      1e+06
+7:data group 1::gaussian:LineE>6.32
+            0.1       0.05(     0.001)          0          0         10         20
+8:data group 1::gaussian:Sigma>.03
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+9:data group 1::gaussian:norm>
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1         -1(      0.01)          0          0      1e+10      1e+10
+10:data group 2::constant:factor>
+         0.0776         -1(  0.000776)          0          0     100000      1e+06
+11:data group 2::wabs:nH>
+              1      0.001(      0.01)          0          0     100000      1e+06
+12:data group 2::zwabs:nH>
+       0.008226         -1( 8.226e-05)     -0.999     -0.999         10         10
+13:data group 2::zwabs:Redshift>
+              1       0.01(      0.01)         -3         -2          9         10
+14:data group 2::powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+15:data group 2::powerlaw:norm>
+           6.32       0.05(    0.0632)          0          0      1e+06      1e+06
+16:data group 2::gaussian:LineE>
+           0.03       0.05(    0.0003)          0          0         10         20
+17:data group 2::gaussian:Sigma>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+18:data group 2::gaussian:norm>
+
+Input parameter value, delta, min, bot, top, and max values for ...
+              1         -1(      0.01)          0          0      1e+10      1e+10
+19:data group 3::constant:factor>
+         0.0776         -1(  0.000776)          0          0     100000      1e+06
+20:data group 3::wabs:nH>
+              1      0.001(      0.01)          0          0     100000      1e+06
+21:data group 3::zwabs:nH>
+       0.008226         -1( 8.226e-05)     -0.999     -0.999         10         10
+22:data group 3::zwabs:Redshift>
+              1       0.01(      0.01)         -3         -2          9         10
+23:data group 3::powerlaw:PhoIndex>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+24:data group 3::powerlaw:norm>
+           6.32       0.05(    0.0632)          0          0      1e+06      1e+06
+25:data group 3::gaussian:LineE>
+           0.03       0.05(    0.0003)          0          0         10         20
+26:data group 3::gaussian:Sigma>
+              1       0.01(      0.01)          0          0      1e+20      1e+24
+27:data group 3::gaussian:norm>
+
+========================================================================
+Model constant<1>*wabs<2>*zwabs<3>(powerlaw<4> + gaussian<5>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+                           Data group: 1
+   1    1   constant   factor              1.00000      frozen
+   2    2   wabs       nH         10^22    7.76000E-02  frozen
+   3    3   zwabs      nH         10^22    1.00000      +/-  0.0          
+   4    3   zwabs      Redshift            8.22600E-03  frozen
+   5    4   powerlaw   PhoIndex            1.00000      +/-  0.0          
+   6    4   powerlaw   norm                1.00000      +/-  0.0          
+   7    5   gaussian   LineE      keV      6.32000      +/-  0.0          
+   8    5   gaussian   Sigma      keV      3.00000E-02  +/-  0.0          
+   9    5   gaussian   norm                1.00000      +/-  0.0          
+                           Data group: 2
+  10    1   constant   factor              1.00000      = p1
+  11    2   wabs       nH         10^22    7.76000E-02  = p2
+  12    3   zwabs      nH         10^22    1.00000      = p3
+  13    3   zwabs      Redshift            8.22600E-03  = p4
+  14    4   powerlaw   PhoIndex            1.00000      = p5
+  15    4   powerlaw   norm                1.00000      = p6
+  16    5   gaussian   LineE      keV      6.32000      = p7
+  17    5   gaussian   Sigma      keV      3.00000E-02  = p8
+  18    5   gaussian   norm                1.00000      = p9
+                           Data group: 3
+  19    1   constant   factor              1.00000      = p1
+  20    2   wabs       nH         10^22    7.76000E-02  = p2
+  21    3   zwabs      nH         10^22    1.00000      = p3
+  22    3   zwabs      Redshift            8.22600E-03  = p4
+  23    4   powerlaw   PhoIndex            1.00000      = p5
+  24    4   powerlaw   norm                1.00000      = p6
+  25    5   gaussian   LineE      keV      6.32000      = p7
+  26    5   gaussian   Sigma      keV      3.00000E-02  = p8
+  27    5   gaussian   norm                1.00000      = p9
+________________________________________________________________________
+
+
+**************************************************************
+The wabs model is obsolete and is only included for comparison
+with historical results. The tbabs model should be used for
+the ISM or phabs for general photoelectric absorption.
+**************************************************************
+
+Fit statistic : Chi-Squared =   8.803416e+10 using 2156 PHA bins.
+
+Test statistic : Chi-Squared =   8.803416e+10 using 2156 PHA bins.
+ Reduced chi-squared =   4.094612e+07 for   2150 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>newpar 10 1.01
+
+Fit statistic : Chi-Squared =   8.888561e+10 using 2156 PHA bins.
+
+Test statistic : Chi-Squared =   8.888561e+10 using 2156 PHA bins.
+ Reduced chi-squared =   4.136138e+07 for   2149 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>newpar 19 .99
+
+Fit statistic : Chi-Squared =   8.885401e+10 using 2156 PHA bins.
+
+Test statistic : Chi-Squared =   8.885401e+10 using 2156 PHA bins.
+ Reduced chi-squared =   4.136593e+07 for   2148 degrees of freedom 
+ Null hypothesis probability =   0.000000e+00
+ Current data and model not fit yet.
+XSPEC12>fit
+                                   Parameters
+Chi-Squared  |beta|/N    Lvl          3:nH    5:PhoIndex        6:norm       7:LineE       8:Sigma        9:norm     10:factor     19:factor
+93175.1      7.22185e+06  -1      0.228461       1.17941    0.00365322       6.32034     0.0436770   0.000662595      0.955739      0.851257
+38518.9      2.57815e+06  -1     0.0848946       1.30573    0.00655110       6.32043     0.0847359   0.000264931       1.07870      0.531193
+32507.6      1.15634e+06  -2     0.0146961       1.66480     0.0139348       6.32433      0.181774   0.000187418       1.00935      0.731488
+4112.19      1.34011e+06  -3       1.10051       1.75169     0.0225319       6.33970      0.216895   0.000143334       1.00795      0.778599
+2298.45      304191       -4       1.67965       1.76639     0.0252646       6.35453      0.206904   0.000120301       1.00797      0.914932
+2292.63      19201.3      -5       1.67826       1.76663     0.0253807       6.35686      0.199159   0.000118630       1.00794      0.917391
+2292.59      135.151      -6       1.67989       1.76675     0.0253895       6.35683      0.195587   0.000118008       1.00794      0.917540
+2292.58      24.4916      -7       1.68046       1.76679     0.0253932       6.35687      0.193855   0.000117701       1.00794      0.917606
+==========================================================================================
+ Variances and Principal Axes
+                 3        5        6        7        8        9       10       19  
+ 2.7135E-11| -0.0000  -0.0020   0.0414   0.0000  -0.0002   0.9991   0.0006   0.0000  
+ 2.0067E-09|  0.0007   0.0529  -0.9977   0.0000  -0.0005   0.0415  -0.0120  -0.0003  
+ 8.8679E-06| -0.0477   0.9927   0.0537  -0.0073   0.0133  -0.0002  -0.0881   0.0371  
+ 1.1018E-05|  0.0009  -0.0894   0.0073   0.0003  -0.0018   0.0001  -0.9958   0.0193  
+ 3.4216E-03| -0.9852  -0.0423  -0.0029  -0.0090   0.0596   0.0000  -0.0003  -0.1547  
+ 2.2223E-04|  0.1558   0.0416   0.0029   0.0118   0.0488  -0.0000  -0.0228  -0.9854  
+ 4.6993E-04| -0.0531   0.0140   0.0012   0.2273  -0.9708  -0.0002  -0.0005  -0.0531  
+ 2.7123E-04| -0.0010  -0.0033  -0.0001  -0.9737  -0.2266  -0.0000  -0.0001  -0.0232  
+------------------------------------------------------------------------------------------
+
+================================================================================================
+  Covariance Matrix
+        1           2           3           4           5           6           7           8   
+   3.328e-03   1.432e-04   9.929e-06   2.539e-05  -1.749e-04  -9.156e-08   1.495e-07   4.887e-04
+   1.432e-04   1.542e-05   9.239e-07   3.717e-06  -1.424e-05  -7.494e-09   3.053e-08   1.325e-05
+   9.929e-06   9.239e-07   6.007e-08   2.453e-07  -1.113e-06  -5.780e-10  -1.336e-07   9.117e-07
+   2.539e-05   3.717e-06   2.453e-07   2.817e-04  -4.553e-05  -1.607e-08  -8.585e-08   2.632e-06
+  -1.749e-04  -1.424e-05  -1.113e-06  -4.553e-05   4.695e-04   8.643e-08  -7.180e-08  -1.656e-05
+  -9.156e-08  -7.494e-09  -5.780e-10  -1.607e-08   8.643e-08   4.837e-11  -7.270e-10  -9.045e-09
+   1.495e-07   3.053e-08  -1.336e-07  -8.585e-08  -7.180e-08  -7.270e-10   1.111e-05   4.898e-06
+   4.887e-04   1.325e-05   9.117e-07   2.632e-06  -1.656e-05  -9.045e-09   4.898e-06   2.991e-04
+------------------------------------------------------------------------------------------------
+
+========================================================================
+Model constant<1>*wabs<2>*zwabs<3>(powerlaw<4> + gaussian<5>) Source No.: 1   Active/On
+Model Model Component  Parameter  Unit     Value
+ par  comp
+                           Data group: 1
+   1    1   constant   factor              1.00000      frozen
+   2    2   wabs       nH         10^22    7.76000E-02  frozen
+   3    3   zwabs      nH         10^22    1.68046      +/-  5.76874E-02  
+   4    3   zwabs      Redshift            8.22600E-03  frozen
+   5    4   powerlaw   PhoIndex            1.76679      +/-  3.92698E-03  
+   6    4   powerlaw   norm                2.53932E-02  +/-  2.45087E-04  
+   7    5   gaussian   LineE      keV      6.35687      +/-  1.67848E-02  
+   8    5   gaussian   Sigma      keV      0.193855     +/-  2.16686E-02  
+   9    5   gaussian   norm                1.17701E-04  +/-  6.95515E-06  
+                           Data group: 2
+  10    1   constant   factor              1.00794      +/-  3.33303E-03  
+  11    2   wabs       nH         10^22    7.76000E-02  = p2
+  12    3   zwabs      nH         10^22    1.68046      = p3
+  13    3   zwabs      Redshift            8.22600E-03  = p4
+  14    4   powerlaw   PhoIndex            1.76679      = p5
+  15    4   powerlaw   norm                2.53932E-02  = p6
+  16    5   gaussian   LineE      keV      6.35687      = p7
+  17    5   gaussian   Sigma      keV      0.193855     = p8
+  18    5   gaussian   norm                1.17701E-04  = p9
+                           Data group: 3
+  19    1   constant   factor              0.917606     +/-  1.72959E-02  
+  20    2   wabs       nH         10^22    7.76000E-02  = p2
+  21    3   zwabs      nH         10^22    1.68046      = p3
+  22    3   zwabs      Redshift            8.22600E-03  = p4
+  23    4   powerlaw   PhoIndex            1.76679      = p5
+  24    4   powerlaw   norm                2.53932E-02  = p6
+  25    5   gaussian   LineE      keV      6.35687      = p7
+  26    5   gaussian   Sigma      keV      0.193855     = p8
+  27    5   gaussian   norm                1.17701E-04  = p9
+________________________________________________________________________
+
+
+Fit statistic : Chi-Squared =        2292.58 using 2156 PHA bins.
+
+Test statistic : Chi-Squared =        2292.58 using 2156 PHA bins.
+ Reduced chi-squared =        1.06731 for   2148 degrees of freedom 
+ Null hypothesis probability =   1.506895e-02
+

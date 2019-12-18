@@ -1,0 +1,51 @@
+# START REPRO
+
+chmod –R 775 $DIR
+cd $DIR
+mkdir spectra
+cd spectra
+ciao
+
+# REPRO
+
+chandra_repro
+../
+./
+
+punlearn ardlib
+
+# COPY FILES
+
+cp acisf*_repro_evt2.fits event2.fits
+cp acisf*_*_msk1.fits mask.fits
+cp pcadf*_asol1.fits aspect.fits
+
+# ds9
+
+(ciao)
+ds9 event2.fits &
+Region->source
+CIAO -> region -> rotbox
+only rotbox -> Physical/degree
+save region -> source.reg [format: CIAO]
+save bkg -> back.reg
+
+# SPECEXTRACT
+
+punlearn specextract
+pset specextract infile="event2_2.fits[sky=region(source_small.reg)]"
+pset specextract outroot=2121_e1
+pset specextract bkgfile="event2_2.fits[sky=region(back_small.reg)]"
+pset specextract grouptype=NUM_CTS
+pset specextract binspec=40
+pset specextract asp=aspect.fits
+pset specextract mskfile=mask.fits
+pset specextract mode=h
+pset specextract clobber=yes
+specextract verbose=1
+
+# REBIN
+
+grppha $DIR.pi rebinned20.pi
+group min 20
+exit
