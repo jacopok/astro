@@ -1,4 +1,4 @@
-from astropy.cosmology import FlatLambdaCDM
+from astropy.cosmology import FlatLambdaCDM, Planck15
 from astropy.coordinates import SkyCoord
 import astropy.units as u
 import astropy.uncertainty as aun
@@ -19,7 +19,8 @@ deltaz2 = ((47.97 * u.km / u.s) / ac.c).to('')
 
 compat = ufloat(z, deltaz) - ufloat(z, deltaz2)
 
-cosmo = FlatLambdaCDM(H0=67.8, Om0=.308)
+# cosmo = FlatLambdaCDM(H0=67.8, Om0=.308)
+cosmo = Planck15
 
 z_pdf = aun.normal(z.value, std=deltaz.value, n_samples = 10_000)
 
