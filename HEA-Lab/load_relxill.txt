@@ -1,0 +1,3 @@
+initpackage relxill lmodel_relxill.dat /home/jacopo/Documents/astro/HEA-Lab/relxill \nexit
+lmod relxill ../relxill \nexit
+
